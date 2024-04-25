@@ -1,0 +1,19 @@
+services:
+
+    nginx:
+      container_name: laravel-11-docker
+      build: .
+      volumes: 
+        - ./laravel-app:/var/www
+      ports:
+        - 9000:80
+
+    db:
+      image: mysql:8.2
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: nginx
+      ports:
+      - 3306:3306
+
+      
